@@ -1,6 +1,14 @@
-
 import os
 import mysql.connector
+
+try:
+    from dotenv import load_dotenv
+    load_dotenv()
+    env_file = os.path.join(os.path.dirname(__file__), ".env")
+    if os.path.exists(env_file):
+        load_dotenv(dotenv_path=env_file)
+except ImportError:
+    pass
 
 
 def get_connection():
